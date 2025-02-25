@@ -1,4 +1,15 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.williamww'
+            artifactId = 'silky-signature'
+            version = '0.1.3'
+        }
+    }
+}
 
 android {
     compileSdkVersion 34
