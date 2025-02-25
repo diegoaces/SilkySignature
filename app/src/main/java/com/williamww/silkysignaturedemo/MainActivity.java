@@ -20,6 +20,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.file.Files;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity
         Canvas canvas = new Canvas(newBitmap);
         canvas.drawColor(Color.WHITE);
         canvas.drawBitmap(bitmap, 0, 0, null);
-        OutputStream stream = new FileOutputStream(photo);
+        OutputStream stream = Files.newOutputStream(photo.toPath());
         newBitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
         stream.close();
     }

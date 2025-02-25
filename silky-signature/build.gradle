@@ -1,36 +1,10 @@
 apply plugin: 'com.android.library'
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'silky-signature'
-
-    publishedGroupId = 'com.williamww'
-    libraryName = 'SilkySignature'
-    artifact = 'silky-signature'
-
-    libraryDescription = 'A smooth silky signature pad on Android'
-
-    siteUrl = 'https://github.com/ww6015132/SilkySignature'
-    gitUrl = 'https://github.com/ww6015132/SilkySignature.git'
-
-    libraryVersion = '0.1.1'
-
-    developerId = 'wangwei5238'
-    developerName = 'William Wang'
-    developerEmail = 'wangwei5238@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
 android {
-    compileSdkVersion 29
+    compileSdkVersion 34
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion 21
+        targetSdkVersion 33
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -41,6 +15,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    namespace 'com.williamww.silkysignature'
 }
 
 dependencies {
@@ -48,8 +28,6 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.13'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    testImplementation 'junit:junit:4.13.2'
 }
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
